@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Students In Course</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">W3bGrade</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <li><a href="/#">Home</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a  href="/students/list">Students</a></li>
+                <li><a href="/instructors/list">Staff</a></li>
+                <li><a href="/courses/list">Courses</a></li>
+                <li><a href="/teaches/my_courses/list">My Courses</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/register"><span class="glyphicon glyphicon-log-in"></span> Sign Up</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <h2>My Student Data</h2>
+    <h4>View and alter student data below</h4>
+
+    <div class="btn-group" style="color:white">
+        <a th:href="@{/attends/attendants/add(courseName=${param.courseName[0]})}" class="btn btn-info" role="button" style="background-color:#336699"><b style="color:white"> Add Student</b></a>
+    </div>
+
+        <table class="table table-stiped">
+            <thead class="thead=" style="background-color:#b3b3ff">
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Year Of Registration</th>
+                <th scope="col">Grade</th>
+                <th scope="col">Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            <tr th:each="studentWithGrade : ${studentsWithGrades}">
+                <td th:text="${studentWithGrade.key.id}">Id</td>
+                <td th:text="${studentWithGrade.key.firstname}">First Name</td>
+                <td th:text="${studentWithGrade.key.lastname}">Last Name</td>
+                <td th:text="${studentWithGrade.key.yearOfRegistration}">Year Of Registration</td>
+
+                <td th:text="${studentWithGrade.value}">Grade</td>
+                <td>
+                    <a th:href="@{/attends/attendants/delete(studentId=${studentWithGrade.key.id}, courseName=${param.courseName[0]})}" class="btn btn-info" role="button" style="background-color:#ff5050"><b style="color:white">Delete From Course</b></a>
+                    <a th:href="@{/attends/attendants/update(studentId=${studentWithGrade.key.id}, courseName=${param.courseName[0]})}" class="btn btn-info" role="button" style="background-color:#204060"><b style="color:white">Update Grade</b></a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>
