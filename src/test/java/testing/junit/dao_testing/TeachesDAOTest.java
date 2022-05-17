@@ -43,10 +43,9 @@ public class TeachesDAOTest {
     @Test
     public void teachesDAODeletesTeachesTest() {
         TeachesId id = new TeachesId("Menios", "MockCourse");
-        Teaches teaches = new Teaches(id);
 
         doNothing().when(teachesDAO).deleteByTeachesId(id);
-        teachesServiceImpl.deleteByCourseNameAndInstructorUsername("Menios", "MockCourse");
+        teachesDAO.deleteByTeachesId(id);
 
         TeachesId id2 = new TeachesId("Menios", "MockCourseNot");
         List<Teaches> teachesList = new ArrayList<Teaches>();

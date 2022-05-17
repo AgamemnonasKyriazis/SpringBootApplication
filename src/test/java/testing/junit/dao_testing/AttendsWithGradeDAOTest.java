@@ -3,7 +3,6 @@ package testing.junit.dao_testing;
 import myy803.daos.relational.AttendsWithGradeDAO;
 import myy803.entities.relational.AttendsWithGrade;
 import myy803.entities.relational.AttendsWithGradeId;
-import myy803.services.relational.AttendsWithGradeService;
 import myy803.services.relational.AttendsWithGradeServiceImpl;
 import org.junit.Assert;
 import org.junit.Test;

@@ -12,6 +12,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
+
 @Data
 @Entity
 @Table (name="students")
@@ -68,6 +69,7 @@ public class Student {
     }
 
     public void setYearOfRegistration(Date yearOfRegistration) {
+        System.err.println(yearOfRegistration);
         this.yearOfRegistration = yearOfRegistration;
     }
 

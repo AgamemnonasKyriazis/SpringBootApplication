@@ -32,7 +32,15 @@ public class InstructorApplicationSecurityConfig extends WebSecurityConfigurerAd
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/", "/login", "/register").permitAll()
+                .antMatchers(
+                        "/",
+                        "/login",
+                        "/register",
+                        "/about",
+                        "/error",
+                        "/chrisAvatar.png",
+                        "/nefAvatar.png",
+                        "/meniosAvatar.png").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()

@@ -1,7 +1,7 @@
 package myy803.statistics;
 
-import myy803.daos.relational.AttendsWithGradeDAO;
 import myy803.entities.Course;
+import myy803.daos.relational.AttendsWithGradeDAO;
 import myy803.entities.relational.AttendsWithGrade;
 
 import java.util.List;

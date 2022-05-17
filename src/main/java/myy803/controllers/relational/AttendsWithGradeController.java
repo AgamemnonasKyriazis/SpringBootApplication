@@ -73,6 +73,8 @@ public class AttendsWithGradeController {
                                 @RequestParam("courseName") String courseName,
                                 Model model) {
         attendsWithGrade.getAttendsWithGradeId().setCourseName(courseName);
+        if(attendsWithGrade.getGrade() == null)
+            attendsWithGrade.setGrade(0F);
         model.addAttribute("attendsWithGrade", attendsWithGrade);
         attendsWithGradeService.saveAttendsWithGrade(attendsWithGrade);
         return "redirect:/attends/attendants/list?courseName="+courseName;

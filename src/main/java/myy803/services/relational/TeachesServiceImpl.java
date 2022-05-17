@@ -1,7 +1,7 @@
 package myy803.services.relational;
 
-import myy803.daos.relational.TeachesDAO;
 import myy803.entities.relational.Teaches;
+import myy803.daos.relational.TeachesDAO;
 import myy803.entities.relational.TeachesId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -43,6 +43,6 @@ public class TeachesServiceImpl implements TeachesService {
     @Override
     @Transactional
     public void deleteByCourseNameAndInstructorUsername(String courseName, String username) {
-        teachesDAO.deleteByTeachesId(new TeachesId(courseName, username));
+        teachesDAO.deleteByTeachesId(new TeachesId(username, courseName));
     }
 }

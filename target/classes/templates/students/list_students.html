@@ -65,7 +65,7 @@
                 <td th:text="${student.id}">Id</td>
                 <td th:text="${student.firstname}">First Name</td>
                 <td th:text="${student.lastname}">Last Name</td>
-                <td th:text="${student.yearOfRegistration}">Year Of Registration</td>
+                <td th:text="${#dates.format(student.yearOfRegistration, 'dd MMM yyyy')}">Year Of Registration</td>
                 <td>
                     <a th:href="@{/students/update(id=${student.id})}" class="btn btn-info" role="button" style="background-color:#204060"><b style="color:white">Update</b></a>
                     <a th:href="@{/students/delete(id=${student.id})}" class="btn btn-info" role="button" style="background-color:#ff5050"><b style="color:white">Delete</b></a>

@@ -1,8 +1,8 @@
 package myy803.services.relational;
 
+import myy803.entities.relational.AttendsWithGradeId;
 import myy803.daos.relational.AttendsWithGradeDAO;
 import myy803.entities.relational.AttendsWithGrade;
-import myy803.entities.relational.AttendsWithGradeId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
