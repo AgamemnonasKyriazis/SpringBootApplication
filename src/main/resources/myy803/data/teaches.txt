@@ -1,0 +1,11 @@
+3d,DiscreteMathematics
+a,ProbabilitiesAndStatistics
+a1,Databases
+aa,IntroductionToProgramming
+aaberg,InformationRetrieval
+aachen,MachineLearning
+aalborg,ComputerArchitecture
+aalesund,ComputerNetworks
+aalii,SoftwareEngineering
+aalst,Robotics
+a,Robotics

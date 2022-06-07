@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Sign Up Page</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">W3bGrade</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <li><a href="/#">Home</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a  href="/students/list">Students</a></li>
+                <li><a href="/instructors/list">Staff</a></li>
+                <li><a href="/courses/list">Courses</a></li>
+                <li><a href="/teaches/my_courses/list">My Courses</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/register"><span class="glyphicon glyphicon-log-in"></span> Sign Up</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <h2>Insert The Following To Add A New Student:</h2>
+    <div class="jumbotron">
+        <form action="#" th:action="@{/attends/attendants/save(courseName=${param.courseName[0]})}" th:object="${attendsWithGrade}" method="post">
+
+
+            <select th:field="*{attendsWithGradeId.studentId}" class="form-control" id="subject" name="subject">
+                <option value="">Select subject</option>
+                <option
+                        th:each="student : ${students}"
+                        th:value="${student.id}"
+                        th:text="${student}">
+
+                </option>
+            </select>
+
+            <div class="form-group">
+                <label for="grade">Grade:</label>
+                <input type="text" th:default="0" th:field="*{grade}" class="form-control" id="grade" placeholder="Enter grade" name="Grade">
+            </div>
+
+            <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>
